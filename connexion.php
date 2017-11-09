@@ -21,7 +21,7 @@ if(isset($_POST['email']) && isset($_POST["mdp"]))
 
 		$pdo->query("UPDATE utilisateurs SET sid='".$sid."' WHERE email='".$email_entree."'");
 
-		setcookie("id_session",$sid,time()+15*60);
+		setcookie("id_session",$sid,time()+5*60);
 		echo "done";
 		header('Location: index.php');
 	}

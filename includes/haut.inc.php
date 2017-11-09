@@ -1,3 +1,5 @@
+<?php include("verif-util.inc.php") ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -49,8 +51,27 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+                    <?php 
+                        if($util_connecte)
+                        {
+                            echo "<li><a>Bienvenue ".$util_email."</a></li>";
+                        }
+                        else
+                        {
+
+                        }
+                     ?>
                     <li class="page-scroll">
-                        <a href="connexion.php">Connexion</a>
+                        <?php    
+                            if($util_connecte)
+                        {
+                            echo "<li class='page-scroll'><a href='deconnexion.php'>Déconnexion</a></li>";
+                        }
+                        else
+                        {
+                            echo "<li class='page-scroll'><a href='connexion.php'>Connexion</a></li>";
+                        }
+                         ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
