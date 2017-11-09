@@ -91,7 +91,7 @@
 				if($util_connecte)
 				{
 					echo '<a href="article.php?a=sup&id=' . $data['id'] . '", class="btn btn-danger">' . 'Supprimer</a>';
-					echo '<a href="index.php?a=mod&id=' . $data['id'] . '&contenu=' . $data['contenu'] .'", class="btn btn-warning">' . 'Modifier</a>';
+					echo '<a href="index.php?a=mod&id=' . $data['id'] . '&contenu=' . htmlspecialchars($data['contenu']) .'", class="btn btn-warning">' . 'Modifier</a>';
 					//echo date ("d/m/Y H:i:s", /*timestamp - horodateur*/$data ['date']);
 				echo '<br /> <br />';
 				}//fin if($util_connecte)
