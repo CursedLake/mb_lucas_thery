@@ -11,7 +11,7 @@ if(isset($_POST['email']) && isset($_POST["mdp"]))
 	//5 Redirection
 
 	$email_entree = $_POST["email"];
-	$mdp_entre = $_POST["mdp"];
+	$mdp_entre = md5($_POST["mdp"]);
 
 	$mail = $pdo->query("SELECT * FROM utilisateurs WHERE email='".$email_entree."'");
 	$req = $pdo->query("SELECT * FROM utilisateurs WHERE email='".$email_entree."' AND password='".$mdp_entre."'");
@@ -27,7 +27,8 @@ if(isset($_POST['email']) && isset($_POST["mdp"]))
 	}
 	else
 	{
-		echo "utilisateur invalide";
+		echo "utilisateur invalide.";
+		header('Location: connexion.php');
 	}
 }
 else

@@ -25,5 +25,3 @@
 		$util_connecte = false;
 		$util_email = "";
 	}
-
- ?>
