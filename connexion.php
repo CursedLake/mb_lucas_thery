@@ -27,7 +27,7 @@ if (!$util_connecte) {
 
 			setcookie("id_session",$sid,time()+15*60);
 			echo "done";
-			header('Location: index.php');
+			header('Location: connexion.php');
 		}
 		else
 		{
@@ -73,6 +73,9 @@ if (!$util_connecte) {
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Entrer</button>
+					  </div>
+					  <div style="text-align: center;">
+					  	Pas de compte ? <a href="inscription.php">Inscrivez-vous</a>
 					  </div>
 				</form>
 			</div>

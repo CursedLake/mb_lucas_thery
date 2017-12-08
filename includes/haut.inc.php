@@ -71,7 +71,7 @@
                         }
                         else
                         {
-                            echo "<li class='page-scroll'><a href='connexion.php'>Connexion</a></li>";
+                            echo "<li class='page-scroll'><a href='connexion.php'>Mon compte</a></li>";
                         }
                          ?>
                 </ul>
