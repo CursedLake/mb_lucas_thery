@@ -18,7 +18,6 @@
         <div class="row">
             <form class="col-md-4 col-md-offset-4" action="inscription.php" method="POST">    <!-- on centre le bloc formulaire -->
                 <!--<div class="col-sm-3">  -->
-
                     <div class="form-group">
                         <label> Adresse e-mail : </label>
                         <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Entrez votre email" {$style_emailErr}>

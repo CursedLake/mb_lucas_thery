@@ -54,14 +54,15 @@
                         <a href="#page-top"></a>
                     </li>
                     <?php 
-                        if($util_connecte)
+                        if($util_connecte && ($util_nom=="" || $util_prenom==""))
                         {
-                            echo "<li><a>Bienvenue ".$util_email."</a></li>";
+                            echo "<li><a href='./interface_util.php'>Bienvenue ".$util_email."</a></li>";
                         }
-                        else
+                        elseif($util_connecte && $util_nom != "" && $util_prenom != "")
                         {
-
+                            echo "<li><a href='./interface_util.php'>Bienvenue ".$util_nom." ".$util_prenom."</a></li>";
                         }
+                        else;
                      ?>
                     <li class="page-scroll">
                         <?php    
