@@ -54,9 +54,9 @@ INSERT INTO `messages` (`id`, `contenu`, `date`) VALUES
 DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
-  `email` varchar(25) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `sid` varchar(30) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `sid` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;

@@ -1,6 +1,6 @@
 <?php
 
-require_once('Smarty.class.php');
+require_once('libs/Smarty.class.php');
 include("verif-util.inc.php");
 include ("includes/haut.inc.php");
 

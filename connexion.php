@@ -17,7 +17,7 @@ if (!$util_connecte) {
 		$email_entree = $_POST["email"];
 		$mdp_entre = md5($_POST["mdp"]);
 
-		$mail = $pdo->query("SELECT * FROM utilisateurs WHERE email='".$email_entree."'");
+		//$mail = $pdo->query("SELECT * FROM utilisateurs WHERE email='".$email_entree."'");
 		$req = $pdo->query("SELECT * FROM utilisateurs WHERE email='".$email_entree."' AND password='".$mdp_entre."'");
 		if($req->rowCount()==1)
 		{
@@ -32,7 +32,7 @@ if (!$util_connecte) {
 		else
 		{
 			echo "utilisateur invalide.";
-			header('Location: connexion.php');
+			//header('Location: index.php');
 		}
 	}
 	else
