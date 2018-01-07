@@ -7,3 +7,16 @@ a.btn
 {
 	margin-right: 10px;
 }
+
+p.infoMessage
+{
+	width: 100%;
+	border-radius: 5px;
+	background-color: #ffe5e5;
+	color: red;
+}
+
+.glyphicon-info-sign
+{
+	margin: 0px 10px 0px 10px;
+}
