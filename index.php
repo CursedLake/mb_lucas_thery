@@ -28,15 +28,42 @@ if (isset($_GET['a']) && !empty($_GET['a']))
 
 //recupération de tous les messages
 $allMessagesData = array();
-$stmt=$pdo->query("SELECT * FROM messages ORDER BY date DESC");
+$stmt=$pdo->query("SELECT * FROM messages");
+$nombreDePage = ceil($stmt->rowCount() / 5); //arrondir toujours au dessus
+$smarty->assign("nombreDePage",$nombreDePage);
 
-while ($data = $stmt->fetch())
+
+if($stmt->rowCount() > 5) //si plus de 5 résultat alors
 {
-	$allMessagesData[] = $data;
+	if(isset($_GET["page"]) && is_int((int)$_GET["page"]) && $_GET["page"]>0)
+	{
+		$stmt=$pdo->query("SELECT * FROM messages ORDER BY date DESC LIMIT 5 OFFSET ".($_GET["page"]*5));
+		while ($data = $stmt->fetch())
+		{
+			$allMessagesData[] = $data;
+		}
+	}
+	else
+	{
+		$stmt=$pdo->query("SELECT * FROM messages ORDER BY date DESC LIMIT 5");
+
+		while ($data = $stmt->fetch())
+		{
+			$allMessagesData[] = $data;
+		}
+	}
+}
+else //sinon afficher tous les messages
+{
+	$stmt=$pdo->query("SELECT * FROM messages ORDER BY date DESC LIMIT 5");
+
+	while ($data = $stmt->fetch())
+	{
+		$allMessagesData[] = $data;
+	}
 }
 
 $smarty->assign("allMessagesData",$allMessagesData);
-
 
 $smarty->display("tpl/index.tpl");
 

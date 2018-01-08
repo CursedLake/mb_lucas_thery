@@ -47,15 +47,23 @@
         <br /> <br />
 
         {foreach from=$allMessagesData item=i}
-            <blockquote><p>{$i.contenu}</p><footer>{$i.date|date_format:"%d/%m/%Y"}</footer></blockquote>
+            <blockquote><p>{$i.contenu}</p><footer>{$i.date|date_format:"%d/%m/%Y - %H:%M"}</footer></blockquote>
             {if $util_connecte eq 'true'}
                 <a href="article.php?a=sup&id={$i.id}" class="btn btn-danger">Supprimer</a>
                 <a href="index.php?a=mod&id={$i.id}&contenu={$i.contenu}" class="btn btn-warning">Modifier</a>
                 <br /> <br />
             {/if}
         {/foreach}
+        
+        <div class="navMessages">
+            <a href="index.php?page=0" class="navMessagesItem"><<</a>
+            {for $i=1 to $nombreDePage}
+                <a href="index.php?page={$i-1}" class="navMessagesItem">{$i}</a>
+            {/for}
+            <a href="index.php?page={$nombreDePage-1}" class="navMessagesItem">>></a>
+        </div>
 
-        <blockquote>
+        <!--<blockquote>
           <p>Lorem ipsum dolor sit amet, consectetur <a href="#">#adipiscing</a> elit. Integer posuere erat a ante.</p>
           <footer>Foo</footer>
         </blockquote>
@@ -68,6 +76,6 @@
         <blockquote>
           <p>Nunc volutpat vel nibh vitae blandit</p>
           <footer>blandit</footer>
-        </blockquote>
+        </blockquote>-->
     </div>
 </section>

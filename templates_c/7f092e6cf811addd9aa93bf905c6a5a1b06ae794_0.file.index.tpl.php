@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-01-06 23:04:34
+/* Smarty version 3.1.30, created on 2018-01-08 22:26:37
   from "C:\xampp\htdocs\dev_web\tpl\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a5147f23fd0a6_19136704',
+  'unifunc' => 'content_5a53e20d315383_05444933',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7f092e6cf811addd9aa93bf905c6a5a1b06ae794' => 
     array (
       0 => 'C:\\xampp\\htdocs\\dev_web\\tpl\\index.tpl',
-      1 => 1515276271,
+      1 => 1515446794,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a5147f23fd0a6_19136704 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a53e20d315383_05444933 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once 'C:\\xampp\\htdocs\\dev_web\\libs\\plugins\\modifier.date_format.php';
 ?>
 <header>
@@ -79,7 +79,7 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['i']->value) {
 ?>
             <blockquote><p><?php echo $_smarty_tpl->tpl_vars['i']->value['contenu'];?>
-</p><footer><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['i']->value['date'],"%d/%m/%Y");?>
+</p><footer><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['i']->value['date'],"%d/%m/%Y - %H:%M");?>
 </footer></blockquote>
             <?php if ($_smarty_tpl->tpl_vars['util_connecte']->value == 'true') {?>
                 <a href="article.php?a=sup&id=<?php echo $_smarty_tpl->tpl_vars['i']->value['id'];?>
@@ -95,8 +95,26 @@ foreach ($_from as $_smarty_tpl->tpl_vars['i']->value) {
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
+        
+        <div class="navMessages">
+            <a href="index.php?page=0" class="navMessagesItem"><<</a>
+            <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['nombreDePage']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['nombreDePage']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+                <a href="index.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value-1;?>
+" class="navMessagesItem"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a>
+            <?php }
+}
+?>
 
-        <blockquote>
+            <a href="index.php?page=<?php echo $_smarty_tpl->tpl_vars['nombreDePage']->value-1;?>
+" class="navMessagesItem">>></a>
+        </div>
+
+        <!--<blockquote>
           <p>Lorem ipsum dolor sit amet, consectetur <a href="#">#adipiscing</a> elit. Integer posuere erat a ante.</p>
           <footer>Foo</footer>
         </blockquote>
@@ -109,7 +127,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
         <blockquote>
           <p>Nunc volutpat vel nibh vitae blandit</p>
           <footer>blandit</footer>
-        </blockquote>
+        </blockquote>-->
     </div>
 </section><?php }
 }
