@@ -28,42 +28,64 @@ if (isset($_GET['a']) && !empty($_GET['a']))
 
 //recupération de tous les messages
 $allMessagesData = array();
-$stmt=$pdo->query("SELECT * FROM messages");
-$nombreDePage = ceil($stmt->rowCount() / 5); //arrondir toujours au dessus
+$requeteSQL = "";
+if(isset($_GET["search"]) && $_GET["search"] != "")
+{
+	$requeteSQL = "SELECT * FROM messages WHERE contenu LIKE '%".$_GET["search"]."%'";
+}
+else
+{
+	$requeteSQL = "SELECT * FROM messages";
+}
+
+$stmt=$pdo->query($requeteSQL);
+$nombreDePage = ceil($stmt->rowCount() / 5); //arrondir tjs au desus (ex: 1.2 pages impossible)
 $smarty->assign("nombreDePage",$nombreDePage);
 
-
-if($stmt->rowCount() > 5) //si plus de 5 résultat alors
+//choix renquête pa rapport situation (1 possible)
+if($stmt->rowCount() > 5) //limite depassé
 {
-	if(isset($_GET["page"]) && is_int((int)$_GET["page"]) && $_GET["page"]>0)
+	if(isset($_GET["page"]) && is_int((int)$_GET["page"]) && $_GET["page"]>0) //page en particulier ?
 	{
-		$stmt=$pdo->query("SELECT * FROM messages ORDER BY date DESC LIMIT 5 OFFSET ".($_GET["page"]*5));
-		while ($data = $stmt->fetch())
-		{
-			$allMessagesData[] = $data;
-		}
+		if(isset($_GET["search"]) && $_GET["search"] != "")
+			$requeteSQL = "SELECT * FROM messages WHERE contenu LIKE '%".$_GET["search"]."%' ORDER BY date DESC LIMIT 5 OFFSET ".$_GET["page"]*5;
+		else	
+			$requeteSQL = "SELECT * FROM messages ORDER BY date DESC LIMIT 5 OFFSET ".$_GET["page"]*5;
 	}
-	else
-	{
-		$stmt=$pdo->query("SELECT * FROM messages ORDER BY date DESC LIMIT 5");
 
-		while ($data = $stmt->fetch())
-		{
-			$allMessagesData[] = $data;
-		}
+	else //1ere page (total > limite)
+	{
+		if(isset($_GET["search"]) && $_GET["search"] != "")
+			$requeteSQL = "SELECT * FROM messages WHERE contenu LIKE '%".$_GET["search"]."%' ORDER BY date DESC LIMIT 5";
+		else	
+			$requeteSQL = "SELECT * FROM messages ORDER BY date DESC LIMIT 5";
 	}
 }
-else //sinon afficher tous les messages
+else //pas de contrainte: afficher tout
 {
-	$stmt=$pdo->query("SELECT * FROM messages ORDER BY date DESC LIMIT 5");
-
-	while ($data = $stmt->fetch())
-	{
-		$allMessagesData[] = $data;
-	}
+	if(isset($_GET["search"]) && $_GET["search"] != "")
+		$requeteSQL = "SELECT * FROM messages WHERE contenu LIKE '%".$_GET["search"]."%' ORDER BY date DESC LIMIT 5";
+	else	
+		$requeteSQL = "SELECT * FROM messages ORDER BY date DESC LIMIT 5";
 }
+
+
+$stmt=$pdo->query($requeteSQL);
+while ($data = $stmt->fetch())
+{
+	$allMessagesData[] = $data;
+}
+
 
 $smarty->assign("allMessagesData",$allMessagesData);
+$smarty->assign("critereRechercheInput",""); //valeur barre de recherche
+$smarty->assign("critereRecherchePagination",""); //href pagination
+
+if(isset($_GET["search"]) && $_GET["search"] != "")//si critère de recherche alors
+{
+	$smarty->assign("critereRechercheInput",$_GET["search"]);
+	$smarty->assign("critereRecherche","&search=". $_GET["search"]);
+}
 
 $smarty->display("tpl/index.tpl");
 

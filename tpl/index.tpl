@@ -13,8 +13,8 @@
 
 <section>
     <div class="container">
-        <div class="row">
-            {if isset($aModifier)}
+        {if isset($aModifier)}
+            <div class="row">
                 <form method="GET" action="article.php">
                     <div class="col-sm-10">
                         <div class="form-group">
@@ -29,7 +29,9 @@
                         <button type="submit" class="btn btn-success btn-lg">Envoyer</button>
                     </div>
                 </form>
-            {elseif $util_connecte eq 'true'}
+            </div>
+        {elseif $util_connecte eq 'true'}
+            <div class="row">
                 <form method="POST" action="message.php">
                     <div class="col-sm-10">  
                         <div class="form-group">
@@ -41,8 +43,14 @@
                         <button type="submit" class="btn btn-success btn-lg">Envoyer</button>
                     </div>
                 </form>
-            {/if}
-        </div>
+            </div>
+        {/if}
+
+        {*barre de recherche*}
+        <form id="IndexSearch" method="GET" action="index.php">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" name="search" placeholder=Recherche value="{$critereRechercheInput}">
+        </form>
 
         <br /> <br />
 
@@ -55,12 +63,13 @@
             {/if}
         {/foreach}
         
+        {*pagination (critereRecherche="" ou ="&search=blabla"*}
         <div class="navMessages">
-            <a href="index.php?page=0" class="navMessagesItem"><<</a>
+            <a href="index.php?page=0{$critereRecherchePagination}" class="navMessagesItem"><<</a>
             {for $i=1 to $nombreDePage}
-                <a href="index.php?page={$i-1}" class="navMessagesItem">{$i}</a>
+                <a href="index.php?page={$i-1}{$critereRecherchePagination}" class="navMessagesItem">{$i}</a>
             {/for}
-            <a href="index.php?page={$nombreDePage-1}" class="navMessagesItem">>></a>
+            <a href="index.php?page={$nombreDePage-1}{$critereRecherchePagination}" class="navMessagesItem">>></a>
         </div>
 
         <!--<blockquote>

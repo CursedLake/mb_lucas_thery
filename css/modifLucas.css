@@ -34,3 +34,30 @@ p.infoMessage
 	padding: 5px;
 	font-size: 14pt;
 }
+
+#IndexSearch
+{
+	width: 100%;
+	margin: 10px 0px 10px 0px;
+	text-align: center;
+	font-size: 14pt;
+	color: #18BC9C;
+}
+
+#IndexSearch ::-webkit-input-placeholder
+{
+	color: #18BC9C;
+	opacity: 0.5;
+}
+
+#IndexSearch i
+{
+	margin: 0px 2px 0px 2px;
+}
+
+#IndexSearch input
+{
+	width: 25%;
+	border: none;
+	border-bottom: solid #18BC9C 2px;
+}
