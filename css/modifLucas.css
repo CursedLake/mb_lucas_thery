@@ -61,3 +61,8 @@ p.infoMessage
 	border: none;
 	border-bottom: solid #18BC9C 2px;
 }
+
+.infoProfil
+{
+	margin-bottom: 50px;
+}

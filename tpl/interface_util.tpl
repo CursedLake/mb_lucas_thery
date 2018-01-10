@@ -1,11 +1,9 @@
-{*smarty*}
-
 <header>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="intro-text">
-                    <span class="name">{$user}</span>
+                    <span class="name">Profil</span>
                     <hr class="star-light">
                 </div>
             </div>
@@ -13,23 +11,61 @@
     </div>
 </header>
 
-<section>
-    <div class="container ce">
-        <div class="row">
-            <form class="col-md-4 col-md-offset-4" action="interface_util.php" method="POST">    <!-- on centre le bloc formulaire -->
-                <!--<div class="col-sm-3">  -->
-
-                    <div class="form-group">
-                        <label>Votre Nom: </label>
-                        <input type="text" class="form-control" name="nom" aria-describedby="emailHelp" {$nom} {$disable}>
+{if isset($modification)}
+    <section>
+        <div class="container">
+            <div class="row">
+                <form method="POST" action="interface_util.php">
+                    <div class="infoProfil">
+                        <h4>Adresse mail</h4>
+                        <input type="email" name="update_email" value="{$email}">
                     </div>
-                    <div class="form-group">
-                        <label>Votre Prénom</label>
-                        <input type="text" class="form-control" name="prenom" {$prenom} {$disable}>
+                    <div class="infoProfil">
+                        <h4>Mot de passe</h4>
+                        <p>****</p>
                     </div>
-                    {$btn_modifier}
-                    {$btn_valider}
-            </form>
+                    <div class="infoProfil">
+                        <h4>Nom</h4>
+                        <input type="text" name="update_nom" value="{$nom}">
+                    </div>
+                    <div class="infoProfil">
+                        <h4>Prénom</h4>
+                        <input type="text" name="update_prenom" value="{$prenom}">
+                    </div>
+                    <div class="infoProfil">
+                        <button class="btn btn-primary" type="submit" name="update">Modifier</button>
+                    </div>
+                </form>
+                
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+{else}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="infoProfil">
+                    <h4>Adresse mail</h4>
+                    <p>{$email}</p>
+                </div>
+                <div class="infoProfil">
+                    <h4>Mot de passe</h4>
+                    <p>****</p>
+                </div>
+                <div class="infoProfil">
+                    <h4>Nom</h4>
+                    <p>{$nom}</p>
+                </div>
+                <div class="infoProfil">
+                    <h4>Prénom</h4>
+                    <p>{$prenom}</p>
+                </div>
+                <div class="infoProfil">
+                    <form method="POST" action="interface_util.php">
+                        <button class="btn btn-primary" type="submit" name="modif">Modifier les informations</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{/if}

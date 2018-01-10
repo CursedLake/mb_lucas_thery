@@ -1,65 +1,40 @@
 <?php
 
 require_once('libs/Smarty.class.php');
-include("verif-util.inc.php");
+include("includes/verif-util.inc.php");
 include ("includes/haut.inc.php");
 
-if (!$util_connecte)
-{
-	header("Location: connexion.php");
-}
-else
+if($util_connecte)
 {
 	$smarty = new Smarty();
 
-	//on vérifie si l'utilisateur a un nom et/ou prénom
-	if($util_nom != "" && $util_prenom != "")
-	{
-		$smarty->assign("user","".$util_nom." ".$util_prenom);
-		$smarty->assign("nom","value='".$util_nom."' placeholder='".$util_nom."'");
-		$smarty->assign("prenom","value='".$util_prenom."' placeholder='".$util_prenom."'");
-	}
-	else //sinon on affiche son mail
-	{
-		$smarty->assign("user",$util_email);
-		$smarty->assign("nom","");
-		$smarty->assign("prenom","");
-	}
+	$smarty->assign("email","");
+	$smarty->assign("nom","");
+	$smarty->assign("prenom","");
 
-	$smarty->assign("disable","disabled"); //champs désactivés par défaut
-	$smarty->assign("btn_modifier","<div class=\"form-group\">
-                        <button type=\"submit\" name=\"btn_modifier\" class=\"btn btn-primary\">Modifier</button>
-                    </div>");
-	$smarty->assign("btn_valider",""); //bouton valider n'existe pas
+	if(isset($util_email)) $smarty->assign("email",$util_email);
+	if(isset($util_nom)) $smarty->assign("nom",$util_nom);
+	if(isset($util_prenom)) $smarty->assign("prenom",$util_prenom);
 
-	//si le bouton modifier a été pressé
-	if(isset($_POST["btn_modifier"]))
-	{
-		$smarty->assign("disable",""); //activation des champs
-		$smarty->assign("btn_modifier","");
-		$smarty->assign("btn_valider","<div class=\"form-group\">
-                        <button type=\"submit\" name=\"btn_valider\" class=\"btn btn-primary\">Valider</button>
-                    </div>");
-	}
+	if(isset($_POST["modif"])) $smarty->assign("modification","");
 
-	if(isset($_POST["btn_valider"]))
+	if(isset($_POST["update"]))
 	{
-		if($_POST["nom"] != "" && $_POST["prenom"] != "") //si les champs ont été remplis
-		{
-			include ("includes/connexion.inc.php");
-			$req = $pdo->prepare("UPDATE utilisateurs SET nom=?, prenom=? WHERE email='".$util_email."'");
-			$req->bindParam(1, $_POST["nom"]);
-			$req->bindParam(2, $_POST["prenom"]);
-			$req->execute();
-			header('Location: index.php');
-		}
-		else
-		{
-			echo "<script>alert(\"Un des champs est vide\")</script>";
-			header('Location: interface_util.php');
-		}
+
+		$stmt = $pdo->prepare("UPDATE utilisateurs SET email=?, nom=?, prenom=? WHERE email='".$util_email."'");
+
+		$stmt->bindParam(1, $_POST["update_email"]);
+		$stmt->bindParam(2, $_POST["update_nom"]);
+		$stmt->bindParam(3, $_POST["update_prenom"]);
+
+		$stmt->execute();
+
+		header("location: interface_util.php");
 	}
 
 	$smarty->display("tpl/interface_util.tpl");
-}
+
 	include ("includes/bas.inc.php");
+}
+else
+	header("location: index.php"); //pas connecte, pas de profil
