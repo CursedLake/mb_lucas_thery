@@ -41,12 +41,15 @@ else
 $stmt=$pdo->query($requeteSQL);
 $nombreDePage = ceil($stmt->rowCount() / 5); //arrondir tjs au desus (ex: 1.2 pages impossible)
 $smarty->assign("nombreDePage",$nombreDePage);
+$smarty->assign("pageActuelle","1"); //pour indiquer page actuelle (1 par défaut)
 
 //choix renquête pa rapport situation (1 possible)
 if($stmt->rowCount() > 5) //limite depassé
 {
 	if(isset($_GET["page"]) && is_int((int)$_GET["page"]) && $_GET["page"]>0) //page en particulier ?
 	{
+		$smarty->assign("pageActuelle",$_GET["page"] + 1);
+
 		if(isset($_GET["search"]) && $_GET["search"] != "")
 			$requeteSQL = "SELECT * FROM messages WHERE contenu LIKE '%".$_GET["search"]."%' ORDER BY date DESC LIMIT 5 OFFSET ".$_GET["page"]*5;
 		else	

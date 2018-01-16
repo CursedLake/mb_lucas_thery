@@ -67,7 +67,11 @@
         <div class="navMessages">
             <a href="index.php?page=0{$critereRecherchePagination}" class="navMessagesItem"><<</a>
             {for $i=1 to $nombreDePage}
-                <a href="index.php?page={$i-1}{$critereRecherchePagination}" class="navMessagesItem">{$i}</a>
+                {if $pageActuelle eq $i}
+                    <a class="navMessagesItem" style="color: black;">{$i}</a>
+                {else}
+                    <a href="index.php?page={$i-1}{$critereRecherchePagination}" class="navMessagesItem">{$i}</a>
+                {/if}
             {/for}
             <a href="index.php?page={$nombreDePage-1}{$critereRecherchePagination}" class="navMessagesItem">>></a>
         </div>

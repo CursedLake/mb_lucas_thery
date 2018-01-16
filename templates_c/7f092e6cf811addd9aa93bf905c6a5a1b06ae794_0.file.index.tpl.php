@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-01-10 00:18:04
+/* Smarty version 3.1.30, created on 2018-01-16 18:08:49
   from "C:\xampp\htdocs\dev_web\tpl\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a554dac053135_72800615',
+  'unifunc' => 'content_5a5e31a112aa32_91030469',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7f092e6cf811addd9aa93bf905c6a5a1b06ae794' => 
     array (
       0 => 'C:\\xampp\\htdocs\\dev_web\\tpl\\index.tpl',
-      1 => 1515539882,
+      1 => 1516122526,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a554dac053135_72800615 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a5e31a112aa32_91030469 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once 'C:\\xampp\\htdocs\\dev_web\\libs\\plugins\\modifier.date_format.php';
 ?>
 <header>
@@ -114,10 +114,15 @@ $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderin
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-                <a href="index.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value-1;
+                <?php if ($_smarty_tpl->tpl_vars['pageActuelle']->value == $_smarty_tpl->tpl_vars['i']->value) {?>
+                    <a class="navMessagesItem" style="color: black;"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a>
+                <?php } else { ?>
+                    <a href="index.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value-1;
 echo $_smarty_tpl->tpl_vars['critereRecherchePagination']->value;?>
 " class="navMessagesItem"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 </a>
+                <?php }?>
             <?php }
 }
 ?>
