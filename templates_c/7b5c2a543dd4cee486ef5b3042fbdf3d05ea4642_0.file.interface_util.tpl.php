@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-01-10 21:35:34
+/* Smarty version 3.1.30, created on 2018-01-16 17:50:12
   from "C:\xampp\htdocs\dev_web\tpl\interface_util.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a567916af2f65_56688953',
+  'unifunc' => 'content_5a5e2d44cd2e32_62363084',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b5c2a543dd4cee486ef5b3042fbdf3d05ea4642' => 
     array (
       0 => 'C:\\xampp\\htdocs\\dev_web\\tpl\\interface_util.tpl',
-      1 => 1515616530,
+      1 => 1516121411,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a567916af2f65_56688953 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a5e2d44cd2e32_62363084 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <header>
     <div class="container">
@@ -47,7 +47,7 @@ function content_5a567916af2f65_56688953 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                     <div class="infoProfil">
                         <h4>Mot de passe</h4>
-                        <p>****</p>
+                        <p>XXXX</p>
                     </div>
                     <div class="infoProfil">
                         <h4>Nom</h4>
@@ -78,7 +78,7 @@ function content_5a567916af2f65_56688953 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
                 <div class="infoProfil">
                     <h4>Mot de passe</h4>
-                    <p>****</p>
+                    <p>XXXX <a href="changement_mdp.php">Modifier mot de passe</a></p>
                 </div>
                 <div class="infoProfil">
                     <h4>Nom</h4>

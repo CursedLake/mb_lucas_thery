@@ -28,7 +28,7 @@ if (!$util_connecte) {
 
 			$pdo->query("UPDATE utilisateurs SET sid='".$sid."' WHERE email='".$email_entree."'");
 
-			setcookie("id_session",$sid,time()+15*60);
+			setcookie("id_session",$sid,time()+60*60);
 			echo "done";
 			header('Location: connexion.php');
 		}

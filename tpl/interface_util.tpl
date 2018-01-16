@@ -22,7 +22,7 @@
                     </div>
                     <div class="infoProfil">
                         <h4>Mot de passe</h4>
-                        <p>****</p>
+                        <p>XXXX</p>
                     </div>
                     <div class="infoProfil">
                         <h4>Nom</h4>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="infoProfil">
                     <h4>Mot de passe</h4>
-                    <p>****</p>
+                    <p>XXXX <a href="changement_mdp.php">Modifier mot de passe</a></p>
                 </div>
                 <div class="infoProfil">
                     <h4>Nom</h4>
