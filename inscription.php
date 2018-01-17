@@ -1,7 +1,7 @@
 <?php
 
 require_once('libs/Smarty.class.php');
-include("verif-util.inc.php");
+include("includes/verif-util.inc.php");
 include ("includes/haut.inc.php");
 
 if ($util_connecte)
@@ -30,11 +30,11 @@ else
 		}
 		else
 		{
-			include ("includes/connexion.inc.php");
-			$req = $pdo->prepare("INSERT INTO utilisateurs(email,password) VALUES (?, ?)");
-			$req->bindParam(1, $_POST["email"]);
-			$req->bindParam(2, md5($_POST["mdp"]));
-			$req->execute();
+			include("includes/connexion.inc.php");
+			$stmt = $pdo->prepare("INSERT INTO utilisateurs(email,password) VALUES (?, ?)");
+			$stmt->bindParam(1, $_POST["email"]);
+			$stmt->bindParam(2, md5($_POST["mdp"]));
+			$stmt->execute();
 			header('Location: connexion.php');
 		}
 	}
