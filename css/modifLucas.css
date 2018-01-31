@@ -72,3 +72,8 @@ p.infoMessage
 	margin-left: 10px;
 	font-size: 12pt;
 }
+
+.alert
+{
+	padding: 8px;
+}

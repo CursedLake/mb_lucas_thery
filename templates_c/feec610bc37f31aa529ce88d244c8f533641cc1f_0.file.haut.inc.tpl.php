@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-01-07 10:43:20
+/* Smarty version 3.1.30, created on 2018-01-31 16:25:52
   from "C:\xampp\htdocs\dev_web\tpl\haut.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a51ebb8768550_86871666',
+  'unifunc' => 'content_5a71e000531e84_03148947',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'feec610bc37f31aa529ce88d244c8f533641cc1f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\dev_web\\tpl\\haut.inc.tpl',
-      1 => 1515318190,
+      1 => 1517412051,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a51ebb8768550_86871666 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a71e000531e84_03148947 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -46,6 +46,9 @@ function content_5a51ebb8768550_86871666 (Smarty_Internal_Template $_smarty_tpl)
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     
     <link rel="stylesheet" type="text/css" href="css/modifLucas.css">
+    <?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"><?php echo '</script'; ?>
+>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

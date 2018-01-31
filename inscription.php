@@ -13,20 +13,15 @@ else
 	$smarty = new Smarty();
 
 	$smarty->assign("nomPage","inscription");
-	$smarty->assign("style_emailErr",""); //vide par défaut
-	$smarty->assign("style_mdpErr",""); //vide par défaut
-	$smarty->assign("style_confmdpErr",""); //vide par défaut
 
 	if(isset($_POST["email"]) && isset($_POST["mdp"]) && isset($_POST["confmdp"]))
 	{
-		// on verifie si c'est pas vide, et on met les borders en rouge
-		if($_POST["email"]=="") $smarty->assign("style_emailErr","style='border-color: red;'");
-		elseif($_POST["mdp"]=="") $smarty->assign("style_mdpErr","style='border-color: red;'");
-		elseif($_POST["confmdp"]=="") $smarty->assign("style_confmdpErr","style='border-color: red;'");
-		elseif($_POST["mdp"]!=$_POST["confmdp"])
+		if(($_POST["email"]=="") || 
+			($_POST["mdp"]=="") || 
+			($_POST["confmdp"]=="") || 
+			($_POST["mdp"]!=$_POST["confmdp"]))
 		{
-			$smarty->assign("style_mdpErr","style='border-color: red;'");
-			$smarty->assign("style_confmdpErr","style='border-color: red;'");
+			//on fait rien
 		}
 		else
 		{
