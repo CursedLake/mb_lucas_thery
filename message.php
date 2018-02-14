@@ -7,7 +7,7 @@
 		$sql='INSERT INTO messages(contenu,date) VALUES (:contenu,UNIX_TIMESTAMP())'; //UNIX_TIMESTAMP()
 		
 		$prep = $pdo->prepare($sql);
-		$prep->bindValue(':contenu',$_POST['message']);		
+		$prep->bindValue(':contenu',htmlspecialchars($_POST['message']));		
 		//$prep->debugDumpParams();
 		$prep->execute();
 

@@ -21,7 +21,7 @@
 		else if($a == 'mod'){
 			$sql='UPDATE messages SET contenu = :contenu, date = UNIX_TIMESTAMP() WHERE id = :id';
 			$prep = $pdo->prepare($sql);
-			$prep->bindValue(':contenu',$_GET['message']);
+			$prep->bindValue(':contenu',htmlspecialchars($_GET['message']));
 			$prep->bindValue(':id',$_GET['id']);
 			$prep->debugDumpParams();
 			
