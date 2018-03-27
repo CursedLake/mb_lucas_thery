@@ -21,7 +21,8 @@ if (isset($_GET['a']) && !empty($_GET['a']))
 	if($_GET['a'] == 'mod' )
 	{
 		$smarty->assign("aModifier","true");
-		$smarty->assign("contenuAModifier",$_GET['contenu']);
+		$stmt=$pdo->query("SELECT contenu FROM messages WHERE id=".$_GET["id"]);
+		while ($data = $stmt->fetch()) $smarty->assign("contenuAModifier",$data["contenu"]);
 		$smarty->assign("idAModifier",$_GET['id']);
 	}
 }
@@ -76,6 +77,17 @@ else //pas de contrainte: afficher tout
 $stmt=$pdo->query($requeteSQL);
 while ($data = $stmt->fetch())
 {
+	$patternURL = "/(https?:\/\/(?:www.|)[\w\.]+\.\w+(?:(?:[\w\/]+|)\/([^\s\/\?]+)|)(?:\?[^\s]+|))/";
+	$patternEmail = "/([\w\.-]+@((?=.*[\.])[\w\.-]+))/";
+	if(preg_match($patternURL, $data["contenu"]))
+	{
+		$data["contenu"] = preg_replace($patternURL, "<a href='$1'>$1</a>", $data["contenu"]);
+	}
+	else if(preg_match($patternEmail, $data["contenu"]))
+	{
+		$data["contenu"] = preg_replace($patternEmail, "<a href='mailto:$1'>$1</a>", $data["contenu"]);
+	}
+
 	$allMessagesData[] = $data;
 }
 

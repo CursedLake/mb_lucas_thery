@@ -58,7 +58,7 @@
             <blockquote><p>{$i.contenu}</p><footer>{$i.date|date_format:"%d/%m/%Y - %H:%M"}</footer></blockquote>
             {if $util_connecte eq 'true'}
                 <a href="article.php?a=sup&id={$i.id}" class="btn btn-danger">Supprimer</a>
-                <a href="index.php?a=mod&id={$i.id}&contenu={$i.contenu}" class="btn btn-warning">Modifier</a>
+                <a href="index.php?a=mod&id={$i.id}" class="btn btn-warning">Modifier</a>
                 <br /> <br />
             {/if}
         {/foreach}
