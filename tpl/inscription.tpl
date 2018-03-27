@@ -1,52 +1,19 @@
 {* Smarty *}
 
-<script>
-    $(document).ready(function()
-    {
-        function erreur(arg)
-        {
-            arg.parent().addClass("has-error");
-            arg.attr("id","inputError");
-            var text = "<div class='alert alert-danger'>Champs vide</div>";
-            arg.after($(text).hide());
-            $(".alert").slideDown("slow");
-        }
+<script src="js/inscription.js" type="text/javascript"></script>
 
-        $("form").submit(function(event)
-        {
-            $(".has-error").removeClass("has-error");
-            $(".alert").remove();  //si il y des alert encore présents, on les retire
-
-            if (this.email.value=="") {
-                //fonction qui traite erreur
-                erreur($(this.email));
-                return false;
-            }
-            else if (this.mdp.value=="") {
-                erreur($(this.mdp));
-                return false;
-            }
-            else if (this.confmdp.value=="") {
-                erreur($(this.confmdp));
-                return false;
-            }
-            else {
-                return true;
-            }
-        })
-    });
-</script>
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="intro-text">
-                <span class="name">{$nomPage}</span>
-                <hr class="star-light">
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-text">
+                    <span class="name">{$nomPage}</span>
+                    <hr class="star-light">
+                </div>
             </div>
         </div>
     </div>
-</div>
+</header>
 
 <section>
     <div class="container ce">

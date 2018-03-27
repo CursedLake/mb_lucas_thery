@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-01-31 18:12:05
+/* Smarty version 3.1.30, created on 2018-03-27 14:15:03
   from "C:\xampp\htdocs\dev_web\tpl\inscription.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a71f8e584a8c8_53704866',
+  'unifunc' => 'content_5aba35c7021331_32673895',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '04c996d080ec92f923e58a6d9d9cf41a617dc75e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\dev_web\\tpl\\inscription.tpl',
-      1 => 1517418723,
+      1 => 1522152896,
       2 => 'file',
     ),
   ),
@@ -20,60 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a71f8e584a8c8_53704866 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aba35c7021331_32673895 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
 <?php echo '<script'; ?>
->
-    $(document).ready(function()
-    {
-        function erreur(arg)
-        {
-            arg.parent().addClass("has-error");
-            arg.attr("id","inputError");
-            var text = "<div class='alert alert-danger'>Champs vide</div>";
-            arg.after($(text).hide());
-            $(".alert").slideDown("slow");
-        }
-
-        $("form").submit(function(event)
-        {
-            $(".has-error").removeClass("has-error");
-            $(".alert").remove();  //si il y des alert encore présents, on les retire
-
-            if (this.email.value=="") {
-                //fonction qui traite erreur
-                erreur($(this.email));
-                return false;
-            }
-            else if (this.mdp.value=="") {
-                erreur($(this.mdp));
-                return false;
-            }
-            else if (this.confmdp.value=="") {
-                erreur($(this.confmdp));
-                return false;
-            }
-            else {
-                return true;
-            }
-        })
-    });
-<?php echo '</script'; ?>
+ src="js/inscription.js" type="text/javascript"><?php echo '</script'; ?>
 >
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="intro-text">
-                <span class="name"><?php echo $_smarty_tpl->tpl_vars['nomPage']->value;?>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-text">
+                    <span class="name"><?php echo $_smarty_tpl->tpl_vars['nomPage']->value;?>
 </span>
-                <hr class="star-light">
+                    <hr class="star-light">
+                </div>
             </div>
         </div>
     </div>
-</div>
+</header>
 
 <section>
     <div class="container ce">
