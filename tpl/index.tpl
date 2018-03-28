@@ -1,3 +1,5 @@
+<script src="js/index.js" type="text/javascript"></script>
+
 <header>
     <div class="container">
         <div class="row">
@@ -18,7 +20,7 @@
                 <form method="GET" action="article.php">
                     <div class="col-sm-10">
                         <div class="form-group">
-                                <textarea id="message" name="message" class="form-control" placeholder="Message">{$contenuAModifier}</textarea>
+                                <textarea id="message" name="message" class="form-control" placeholder="Message" maxlength="1000">{$contenuAModifier}</textarea>
                             <!-- ajouter le label -->
                         </div>
                             <input type="hidden"  name="a"  value="mod">
@@ -35,7 +37,7 @@
                 <form method="POST" action="message.php">
                     <div class="col-sm-10">  
                         <div class="form-group">
-                            <textarea id="message" name="message" class="form-control" placeholder="Message"></textarea>
+                            <textarea id="message" name="message" class="form-control" placeholder="Message" maxlength="1000"></textarea>
                             <!-- ajouter le label -->
                         </div>
                     </div>

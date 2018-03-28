@@ -60,6 +60,7 @@ p.infoMessage
 	width: 25%;
 	border: none;
 	border-bottom: solid #18BC9C 2px;
+	outline: none;
 }
 
 .infoProfil
@@ -76,4 +77,10 @@ p.infoMessage
 .alert
 {
 	padding: 8px;
+}
+
+.readmore
+{
+	display: block;
+	margin: 8px 0;
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-03-27 17:27:42
+/* Smarty version 3.1.30, created on 2018-03-28 14:52:43
   from "C:\xampp\htdocs\dev_web\tpl\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5aba62eebcc190_86899024',
+  'unifunc' => 'content_5abb901b3d39d1_19505661',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7f092e6cf811addd9aa93bf905c6a5a1b06ae794' => 
     array (
       0 => 'C:\\xampp\\htdocs\\dev_web\\tpl\\index.tpl',
-      1 => 1522164458,
+      1 => 1522241561,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5aba62eebcc190_86899024 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5abb901b3d39d1_19505661 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once 'C:\\xampp\\htdocs\\dev_web\\libs\\plugins\\modifier.date_format.php';
-?>
+echo '<script'; ?>
+ src="js/index.js" type="text/javascript"><?php echo '</script'; ?>
+>
+
 <header>
     <div class="container">
         <div class="row">
@@ -43,7 +46,7 @@ if (!is_callable('smarty_modifier_date_format')) require_once 'C:\\xampp\\htdocs
                 <form method="GET" action="article.php">
                     <div class="col-sm-10">
                         <div class="form-group">
-                                <textarea id="message" name="message" class="form-control" placeholder="Message"><?php echo $_smarty_tpl->tpl_vars['contenuAModifier']->value;?>
+                                <textarea id="message" name="message" class="form-control" placeholder="Message" maxlength="1000"><?php echo $_smarty_tpl->tpl_vars['contenuAModifier']->value;?>
 </textarea>
                             <!-- ajouter le label -->
                         </div>
@@ -62,7 +65,7 @@ if (!is_callable('smarty_modifier_date_format')) require_once 'C:\\xampp\\htdocs
                 <form method="POST" action="message.php">
                     <div class="col-sm-10">  
                         <div class="form-group">
-                            <textarea id="message" name="message" class="form-control" placeholder="Message"></textarea>
+                            <textarea id="message" name="message" class="form-control" placeholder="Message" maxlength="1000"></textarea>
                             <!-- ajouter le label -->
                         </div>
                     </div>

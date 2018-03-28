@@ -79,6 +79,8 @@ while ($data = $stmt->fetch())
 {
 	$patternURL = "/(https?:\/\/(?:www.|)[\w\.]+\.\w+(?:(?:[\w\/]+|)\/([^\s\/\?]+)|)(?:\?[^\s]+|))/";
 	$patternEmail = "/([\w\.-]+@((?=.*[\.])[\w\.-]+))/";
+	$patternTel = "/0[\d]{1}[\.\s-]?[\d]{2}[\.\s-]?[\d]{2}[\.\s-]?[\d]{2}[\.\s-]?[\d]{2}/";
+
 	if(preg_match($patternURL, $data["contenu"]))
 	{
 		$data["contenu"] = preg_replace($patternURL, "<a href='$1'>$1</a>", $data["contenu"]);
@@ -87,7 +89,11 @@ while ($data = $stmt->fetch())
 	{
 		$data["contenu"] = preg_replace($patternEmail, "<a href='mailto:$1'>$1</a>", $data["contenu"]);
 	}
-
+	else if(preg_match($patternTel, $data["contenu"]))
+	{
+		$data["contenu"] = preg_replace($patternTel, "<b>$0<b>", $data["contenu"]);
+	}
+	if (strlen($data["contenu"]) > 150) $data["contenu"] = str_replace(substr($data["contenu"], 150), "", $data["contenu"])."... <button class='readmore btn btn-info btn-sm' recupID='".$data["id"]."' >Voir la suite</button>";
 	$allMessagesData[] = $data;
 }
 

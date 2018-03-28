@@ -2,7 +2,7 @@
 	include ("includes/connexion.inc.php");
 
 	try{
-		echo var_dump($_GET);
+		//echo var_dump($_GET);
 		
 		$a = $_GET['a'];
 		
@@ -29,6 +29,11 @@
 			$prep->execute();
 			header("Location:index.php");
 			exit();
+		}
+		else if($a=='recup'){
+			$stmt = $pdo->query("SELECT * FROM messages WHERE id=".$_GET["id"]);
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			echo $result["contenu"];
 		}
 		else{
 		}
