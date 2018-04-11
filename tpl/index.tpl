@@ -1,5 +1,3 @@
-<script src="js/index.js" type="text/javascript"></script>
-
 <header>
     <div class="container">
         <div class="row">
@@ -25,7 +23,6 @@
                         </div>
                             <input type="hidden"  name="a"  value="mod">
                             <input type='hidden'  name='id'  value={$idAModifier}>
-
                     </div>
                     <div class="col-sm-2">
                         <button type="submit" class="btn btn-success btn-lg">Envoyer</button>
@@ -70,7 +67,7 @@
             <a href="index.php?page=0{$critereRecherchePagination}" class="navMessagesItem"><<</a>
             {for $i=1 to $nombreDePage}
                 {if $pageActuelle eq $i}
-                    <a class="navMessagesItem" style="color: black;">{$i}</a>
+                    <a class="navMessagesItem cblack">{$i}</a>
                 {else}
                     <a href="index.php?page={$i-1}{$critereRecherchePagination}" class="navMessagesItem">{$i}</a>
                 {/if}

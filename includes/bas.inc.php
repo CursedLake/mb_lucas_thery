@@ -15,6 +15,13 @@
                         <h3>A propos</h3>
                         <p>Micro blog est une application PHP basée sur le thème <a href="https://startbootstrap.com/template-overviews/freelancer/">Freelancer</a>.</p>
                     </div>
+                    <div class="footer-col col-md-12">
+                        <a href="#" class="sprite fb"></a>
+                        <a href="#" class="sprite yt"></a>
+                        <a href="#" class="sprite tw"></a>
+                        <a href="#" class="sprite in"></a>
+                        <a href="#" class="sprite gp"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,6 +54,9 @@
 
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
+
+    <script src="js/index.js" type="text/javascript"></script>
+    <script src="js/inscription.js" type="text/javascript"></script>
 
 </body>
 

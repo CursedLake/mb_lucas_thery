@@ -1,7 +1,4 @@
 {* Smarty *}
-
-<script src="js/inscription.js" type="text/javascript"></script>
-
 <header>
     <div class="container">
         <div class="row">
@@ -18,7 +15,7 @@
 <section>
     <div class="container ce">
         <div class="row">
-            <form class="col-md-4 col-md-offset-4" action="inscription.php" method="POST">    <!-- on centre le bloc formulaire -->
+            <form id="insForm" class="col-md-4 col-md-offset-4" action="inscription.php" method="POST">    <!-- on centre le bloc formulaire -->
                 <!--<div class="col-sm-3">  -->
                     <div class="form-group">
                         <label class="control-label"> Adresse e-mail : </label>

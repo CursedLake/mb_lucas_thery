@@ -11,7 +11,7 @@ $(document).ready(function()
         $(".alert").slideDown("slow");
     }
 
-    $("form").submit(function(event)
+    $("#insForm").submit(function(event)
     {
         event.preventDefault();
         $(".has-error").removeClass("has-error");
