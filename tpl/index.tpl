@@ -54,7 +54,16 @@
         <br /> <br />
 
         {foreach from=$allMessagesData item=i}
-            <blockquote><p>{$i.contenu}</p><footer>{$i.date|date_format:"%d/%m/%Y - %H:%M"}</footer></blockquote>
+            <blockquote><p>{$i.contenu}</p><footer>{$i.date|date_format:"%d/%m/%Y - %H:%M"}
+                <span class="stars">
+                    <i class="fa fa-star-o" starId=0></i>
+                    <i class="fa fa-star-o" starId=2></i>
+                    <i class="fa fa-star-o" starId=3></i>
+                    <i class="fa fa-star-o" starId=4></i>
+                    <i class="fa fa-star-o" starId=5></i>
+                </span>
+            </footer>
+            </blockquote>
             {if $util_connecte eq 'true'}
                 <a href="article.php?a=sup&id={$i.id}" class="btn btn-danger">Supprimer</a>
                 <a href="index.php?a=mod&id={$i.id}" class="btn btn-warning">Modifier</a>

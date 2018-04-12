@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-12 18:49:44
+/* Smarty version 3.1.30, created on 2018-04-11 20:56:41
   from "C:\xampp\htdocs\dev_web\tpl\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5acf8e28dc61b2_01841195',
+  'unifunc' => 'content_5ace5a69b9f825_17236436',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7f092e6cf811addd9aa93bf905c6a5a1b06ae794' => 
     array (
       0 => 'C:\\xampp\\htdocs\\dev_web\\tpl\\index.tpl',
-      1 => 1523551781,
+      1 => 1523472980,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5acf8e28dc61b2_01841195 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ace5a69b9f825_17236436 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once 'C:\\xampp\\htdocs\\dev_web\\libs\\plugins\\modifier.date_format.php';
 ?>
 <header>
@@ -67,6 +67,7 @@ if (!is_callable('smarty_modifier_date_format')) require_once 'C:\\xampp\\htdocs
                     </div>
                     <div class="col-sm-2">
                         <button type="submit" class="btn btn-success btn-lg">Envoyer</button>
+                        <i class="fa fa-star-o"/>
                     </div>
                 </form>
             </div>
@@ -88,16 +89,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['i']->value) {
 ?>
             <blockquote><p><?php echo $_smarty_tpl->tpl_vars['i']->value['contenu'];?>
 </p><footer><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['i']->value['date'],"%d/%m/%Y - %H:%M");?>
-
-                <span class="stars">
-                    <i class="fa fa-star-o" starId=0></i>
-                    <i class="fa fa-star-o" starId=2></i>
-                    <i class="fa fa-star-o" starId=3></i>
-                    <i class="fa fa-star-o" starId=4></i>
-                    <i class="fa fa-star-o" starId=5></i>
-                </span>
-            </footer>
-            </blockquote>
+</footer></blockquote>
             <?php if ($_smarty_tpl->tpl_vars['util_connecte']->value == 'true') {?>
                 <a href="article.php?a=sup&id=<?php echo $_smarty_tpl->tpl_vars['i']->value['id'];?>
 " class="btn btn-danger">Supprimer</a>

@@ -87,6 +87,20 @@ p.infoMessage
 	margin: 8px 0;
 }
 
+.fa-star-o:first-child, .fa-star:first-child
+{
+	margin-left: 10px;
+}
+
+.fa-star{
+	color: orange;
+}
+
+.stars:hover
+{
+	cursor: pointer;
+}
+
 .sprite
 {
 	width: 48px;
